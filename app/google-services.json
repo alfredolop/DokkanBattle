@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "651212642010",
+    "firebase_url": "https://dokkandatabase.firebaseio.com",
+    "project_id": "dokkandatabase",
+    "storage_bucket": "dokkandatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651212642010:android:5fe3f1094b93d667b0b7e3",
+        "android_client_info": {
+          "package_name": "net.azarquiel.dokkanbattle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651212642010-a77br815s1gl6gjqei9utljg3bibu9kt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.azarquiel.dokkanbattle",
+            "certificate_hash": "172a9e868ca21ab465146b6cfce23df04c0eec1b"
+          }
+        },
+        {
+          "client_id": "651212642010-lisb36jhk96utplo9ng6gritdlcjvsm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9TusnpS-lfIHXlaCfWdRSoMSIJcwbSJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651212642010-lisb36jhk96utplo9ng6gritdlcjvsm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
