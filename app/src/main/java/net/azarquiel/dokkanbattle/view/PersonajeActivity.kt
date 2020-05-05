@@ -71,24 +71,62 @@ class PersonajeActivity : AppCompatActivity() {
             .whereEqualTo("idpersonaje", carta.iddokkan)
             .get()
             .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                    val cartanueva = document.data as Carta
-                    val intent = Intent(this, PersonajeActivity::class.java)
-                    intent.putExtra("carta", cartanueva)
-                    startActivity(intent)
+                if (documents.size()>0) {
+                    val midata = documents.documents[0].data
+                    midata?.let {
+                        val cartanueva = documentToCarta(it)
+                        val intent = Intent(this, PersonajeActivity::class.java)
+                        intent.putExtra("carta", cartanueva)
+                        startActivity(intent)
+                    }
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-
-
     }
 
-    private fun procesarData(data: Map<String, Any>) {
-        for ((k, v) in data){
-            Log.d(TAG, "$k => $v")
-        }
+    private fun documentToCarta(d: Map<String, Any>): Carta {
+        val idpersonaje = d["idpersonaje"] as Long
+        val idtipoelemento = d["idtipoelemento"] as Long
+        val elemento = d["elemento"] as String
+        val tipo = d["tipo"] as String
+        val rareza = d["rareza"] as String
+        val sobrenombre = d["sobrenombre"] as String
+        val nombre = d["nombre"] as String
+        val leader_skill = d["leader_skill"] as String
+        val super_atk = d["super_atk"] as String
+        val passive_skill = d["passive_skill"] as String
+        val categories = d["categories"] as String
+        val links = d["links"] as String
+        val active_skill = d["active_skill"] as String
+        val idpredokkan = d["idpredokkan"] as Long
+        val idtipoelementopredokkan = d["idtipoelementopredokkan"] as Long
+        val rarezapredokkan = d["rarezapredokkan"] as String
+        val iddokkan = d["iddokkan"] as Long
+        val idtipoelementodokkan = d["idtipoelementodokkan"] as Long
+        val rarezadokkan = d["rarezadokkan"] as String
+        val poster = d["poster"] as String
+        return(Carta(
+            idpersonaje = idpersonaje,
+            idtipoelemento = idtipoelemento,
+            elemento = elemento,
+            tipo = tipo,
+            rareza = rareza,
+            sobrenombre = sobrenombre,
+            nombre = nombre,
+            leader_skill = leader_skill,
+            super_atk = super_atk,
+            passive_skill = passive_skill,
+            categories = categories,
+            links = links,
+            active_skill = active_skill,
+            idpredokkan = idpredokkan,
+            idtipoelementopredokkan = idtipoelementopredokkan,
+            rarezapredokkan = rarezapredokkan,
+            iddokkan = iddokkan,
+            idtipoelementodokkan = idtipoelementodokkan,
+            rarezadokkan = rarezadokkan,
+            poster = poster))
     }
 }
