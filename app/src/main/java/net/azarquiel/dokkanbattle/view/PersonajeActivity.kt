@@ -23,7 +23,8 @@ class PersonajeActivity : AppCompatActivity() {
         carta = intent.getSerializableExtra("carta") as Carta
         db = FirebaseFirestore.getInstance()
         hazDetalle()
-        todacartadokkan.setOnClickListener{ onClickPersonaje() }
+        todacartapredokkan.setOnClickListener{ onClickPersonajePreDokkan() }
+        todacartadokkan.setOnClickListener{ onClickPersonajeDokkan() }
     }
 
     private fun hazDetalle() {
@@ -66,9 +67,29 @@ class PersonajeActivity : AppCompatActivity() {
         Picasso.get().load(carta.poster).into(ivposter)
     }
 
-    fun onClickPersonaje() {
+    fun onClickPersonajeDokkan() {
         db.collection("carta")
             .whereEqualTo("idpersonaje", carta.iddokkan)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents.size()>0) {
+                    val midata = documents.documents[0].data
+                    midata?.let {
+                        val cartanueva = documentToCarta(it)
+                        val intent = Intent(this, PersonajeActivity::class.java)
+                        intent.putExtra("carta", cartanueva)
+                        startActivity(intent)
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun onClickPersonajePreDokkan() {
+        db.collection("carta")
+            .whereEqualTo("idpersonaje", carta.idpredokkan)
             .get()
             .addOnSuccessListener { documents ->
                 if (documents.size()>0) {
