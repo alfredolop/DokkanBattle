@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.google.firebase.firestore.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_personaje.*
@@ -20,11 +23,43 @@ class PersonajeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personaje)
+        val adapter = MyViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(FragmentUno(),"Uno")
+        viewPager.adapter = adapter
         carta = intent.getSerializableExtra("carta") as Carta
         db = FirebaseFirestore.getInstance()
+        val fragmento = FragmentUno()
+        val datos = Bundle()
+        val texto = carta.leader_skill
+        Log.d(TAG,texto)
+        datos.putString("textolider", texto)
+        Log.d(TAG,"${datos}")
+        fragmento.arguments = datos
         hazDetalle()
         todacartapredokkan.setOnClickListener{ onClickPersonajePreDokkan() }
         todacartadokkan.setOnClickListener{ onClickPersonajeDokkan() }
+    }
+
+    class MyViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager){
+        private val fragmentlist : MutableList<Fragment> = ArrayList()
+        private val titlelist : MutableList<String> = ArrayList()
+        override fun getItem(position: Int): Fragment {
+            return fragmentlist[position]
+        }
+
+        override fun getCount(): Int {
+            return fragmentlist.size
+        }
+
+        fun addFragment(fragment: Fragment, title: String){
+            fragmentlist.add(fragment)
+            titlelist.add(title)
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return titlelist[position]
+        }
+
     }
 
     private fun hazDetalle() {
