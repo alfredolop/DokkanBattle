@@ -23,9 +23,6 @@ class PersonajeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personaje)
-        val adapter = MyViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(FragmentUno(),"Uno")
-        viewPager.adapter = adapter
         carta = intent.getSerializableExtra("carta") as Carta
         db = FirebaseFirestore.getInstance()
         val fragmento = FragmentUno()
@@ -35,6 +32,9 @@ class PersonajeActivity : AppCompatActivity() {
         datos.putString("textolider", texto)
         Log.d(TAG,"${datos}")
         fragmento.arguments = datos
+        val adapter = MyViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(fragmento,"Uno")
+        viewPager.adapter = adapter
         hazDetalle()
         todacartapredokkan.setOnClickListener{ onClickPersonajePreDokkan() }
         todacartadokkan.setOnClickListener{ onClickPersonajeDokkan() }

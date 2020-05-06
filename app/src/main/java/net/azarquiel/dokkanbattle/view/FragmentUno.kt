@@ -29,9 +29,9 @@ class FragmentUno : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val datos by lazy { arguments }
+        val datos = arguments
         Log.d(TAG,"${datos}")
-        //tvlider.text = datos!!.getString("textolider")
+        tvlider.text = datos!!.getString("textolider")
     }
 
 
