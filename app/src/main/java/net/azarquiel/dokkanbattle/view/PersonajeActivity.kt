@@ -96,6 +96,8 @@ class PersonajeActivity : AppCompatActivity() {
 
     private fun hazDetalle() {
         tvSobrenombre.text = carta.sobrenombre
+        ivrareza.loadApng("https://www.web-api.eu/images/dokkan_assets/${carta.rareza}.png")
+        ivtipo.loadApng("https://www.web-api.eu/images/dokkan_assets/type_${carta.idtipoelemento}.png")
         tvNombre.text = carta.nombre
         if (carta.idpredokkan.compareTo(0) == 0) {
             todacartapredokkan.maxHeight = 0
@@ -114,9 +116,9 @@ class PersonajeActivity : AppCompatActivity() {
         if (carta.iddokkan.compareTo(0) == 0) {
             todacartadokkan.maxHeight = 0
         } else {
-            ivfoto.loadApng("https://gamepress.gg/dbzdokkanbattle/sites/dbzdokkanbattle/files/assets/character/thumb/card_${carta.iddokkan}_thumb.png")
-            ivrareza.loadApng("https://www.web-api.eu/images/dokkan_assets/${carta.rarezadokkan}.png")
-            ivtipo.loadApng("https://www.web-api.eu/images/dokkan_assets/type_${carta.idtipoelementodokkan}.png")
+            ivfotodokkan.loadApng("https://gamepress.gg/dbzdokkanbattle/sites/dbzdokkanbattle/files/assets/character/thumb/card_${carta.iddokkan}_thumb.png")
+            ivrarezadokkan.loadApng("https://www.web-api.eu/images/dokkan_assets/${carta.rarezadokkan}.png")
+            ivtipodokkan.loadApng("https://www.web-api.eu/images/dokkan_assets/type_${carta.idtipoelementodokkan}.png")
             fondo.setBackgroundResource(
                 resources.getIdentifier(
                     "fondo${carta.rarezadokkan}${carta.elemento}",
