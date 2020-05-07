@@ -2,34 +2,30 @@ package net.azarquiel.dokkanbattle.view
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_fragment_uno.*
+import kotlinx.android.synthetic.main.fragment_fragment_dos.*
+import kotlinx.android.synthetic.main.fragment_fragment_tres.*
 
 import net.azarquiel.dokkanbattle.R
-import net.azarquiel.dokkanbattle.model.Carta
 
 /**
  * A simple [Fragment] subclass.
  */
-class FragmentUno : Fragment() {
-    companion object {
-        const val TAG = "Dokkan"
-    }
+class FragmentTres : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_fragment_uno, container, false)
+        return inflater.inflate(R.layout.fragment_fragment_tres, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val datos = arguments
-        tvLeaderSkill.text = datos!!.getString("textolider")!!.replace("; ", ";\n")
+        tvPassiveSkill.text = datos!!.getString("textopasiva")!!.replace("; ", ";\n")
     }
 
 

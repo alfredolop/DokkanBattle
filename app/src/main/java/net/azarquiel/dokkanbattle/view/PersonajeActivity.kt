@@ -25,16 +25,7 @@ class PersonajeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_personaje)
         carta = intent.getSerializableExtra("carta") as Carta
         db = FirebaseFirestore.getInstance()
-        val fragmento = FragmentUno()
-        val datos = Bundle()
-        val texto = carta.leader_skill
-        Log.d(TAG,texto)
-        datos.putString("textolider", texto)
-        Log.d(TAG,"${datos}")
-        fragmento.arguments = datos
-        val adapter = MyViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(fragmento,"Uno")
-        viewPager.adapter = adapter
+        setupViewPager()
         hazDetalle()
         todacartapredokkan.setOnClickListener{ onClickPersonajePreDokkan() }
         todacartadokkan.setOnClickListener{ onClickPersonajeDokkan() }
@@ -62,15 +53,50 @@ class PersonajeActivity : AppCompatActivity() {
 
     }
 
+    private fun setupViewPager(){
+        val fragmentoUno = FragmentUno()
+        val fragmentoDos = FragmentDos()
+        val fragmentoTres = FragmentTres()
+        val fragmentoCuatro = FragmentCuatro()
+        val fragmentoCinco = FragmentoCinco()
+        val fragmentoSeis = FragmentSeis()
+        val datosUno = Bundle()
+        val datosDos = Bundle()
+        val datosTres = Bundle()
+        val datosCuatro = Bundle()
+        val datosCinco = Bundle()
+        val datosSeis = Bundle()
+        val leader_skill_text = carta.leader_skill
+        val super_atk_text = carta.super_atk
+        val passive_skill_text = carta.passive_skill
+        val links_text = carta.links
+        val categories_text = carta.categories
+        val active_skill_text = carta.active_skill
+        datosUno.putString("textolider", leader_skill_text)
+        fragmentoUno.arguments = datosUno
+        datosDos.putString("textoataque", super_atk_text)
+        fragmentoDos.arguments = datosDos
+        datosTres.putString("textopasiva", passive_skill_text)
+        fragmentoTres.arguments = datosTres
+        datosCuatro.putString("textoactiva", active_skill_text)
+        fragmentoCuatro.arguments = datosCuatro
+        datosCinco.putString("textolinks", links_text)
+        fragmentoCinco.arguments = datosCinco
+        datosSeis.putString("textocategorias", categories_text)
+        fragmentoSeis.arguments = datosSeis
+        val adapter = MyViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(fragmentoUno," Uno ")
+        adapter.addFragment(fragmentoDos," Dos ")
+        adapter.addFragment(fragmentoTres," Tres ")
+        adapter.addFragment(fragmentoCuatro," Cuatro ")
+        adapter.addFragment(fragmentoCinco," Cinco ")
+        adapter.addFragment(fragmentoSeis," Seis ")
+        viewPager.adapter = adapter
+    }
+
     private fun hazDetalle() {
         tvSobrenombre.text = carta.sobrenombre
         tvNombre.text = carta.nombre
-        tvLeaderSkill.text = carta.leader_skill
-        tvSuperATK.text = carta.super_atk.replace("; ", ";\n")
-        tvPassiveSkill.text = carta.passive_skill.replace("; ", ";\n")
-        tvActiveSkill.text = carta.active_skill.replace("; ", ";\n")
-        tvLinks.text = carta.links
-        tvCategories.text = carta.categories
         if (carta.idpredokkan.compareTo(0) == 0) {
             todacartapredokkan.maxHeight = 0
         } else {

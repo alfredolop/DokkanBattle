@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         carta["passive_skill"] = "Deliver the final blow for ATK +25% in the next attack"
         carta["categories"] = "Hybrid Saiyans - Future Saga - Time Travelers - Vegeta's Family - Androids/Cell Saga - Bond of Master and Disciple"
         carta["links"] = "Royal Lineage - Cold Judgment - Messenger from the Future - Z Fighters"
-        carta["active_skill"] = "None"
+        carta["active_skill"] = "No data"
         carta["idpredokkan"] = 0
         carta["idtipoelementopredokkan"] = 0
         carta["rarezapredokkan"] = ""
