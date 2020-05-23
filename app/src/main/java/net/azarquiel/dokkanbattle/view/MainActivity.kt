@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         db = FirebaseFirestore.getInstance()
         initRV()
         setListener()
-
     }
 
     private fun initRV() {
