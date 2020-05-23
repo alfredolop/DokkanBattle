@@ -44,7 +44,7 @@ class CustomAdapter(val context: Context,
         fun bind(dataItem: Carta){
             // itemview es el item de diseño
             // al que hay que poner los datos del objeto dataItem
-            itemView.ivfotorow.loadApng("https://gamepress.gg/dbzdokkanbattle/sites/dbzdokkanbattle/files/assets/character/thumb/card_${dataItem.idpersonaje}_thumb.png")
+            itemView.ivfotorow.loadApng("https://www.web-api.eu/images/dokkan/${dataItem.idpersonaje}.png")
             itemView.ivrarezarow.loadApng("https://www.web-api.eu/images/dokkan_assets/${dataItem.rareza}.png")
             itemView.fondorow.setBackgroundResource(context.resources.getIdentifier("fondo${dataItem.rareza}${dataItem.elemento}","drawable",context.packageName))
             itemView.ivtiporow.loadApng("https://www.web-api.eu/images/dokkan_assets/type_${dataItem.idtipoelemento}.png")

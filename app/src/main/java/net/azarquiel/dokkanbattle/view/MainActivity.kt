@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         db = FirebaseFirestore.getInstance()
         initRV()
         setListener()
-        btnadd.setOnClickListener{ addData() }
+
     }
 
     private fun initRV() {
@@ -104,20 +104,20 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         }
     }
 
-    private fun addData() {
+    /*private fun addData() {
         val carta: MutableMap<String, Any> = HashMap() // diccionario key value
-        carta["idpersonaje"] = 1000100
-        carta["idtipoelemento"] = 0
-        carta["elemento"] = "agl"
-        carta["tipo"] = "super"
+        carta["idpersonaje"] = 1000200
+        carta["idtipoelemento"] = 4
+        carta["elemento"] = "phy"
+        carta["tipo"] = "extreme"
         carta["rareza"] = "sr"
-        carta["sobrenombre"] = "Hawk Eyes"
-        carta["nombre"] = "Trunks (Teen)"
-        carta["leader_skill"] = "AGL and PHY Type ATK +25%"
+        carta["sobrenombre"] = "Calculated Combat"
+        carta["nombre"] = "Android #19"
+        carta["leader_skill"] = "ATK + 15% when HP is 50% or above"
         carta["super_atk"] = "Causes huge damage to enemy"
-        carta["passive_skill"] = "Deliver the final blow for ATK +25% in the next attack"
-        carta["categories"] = "Hybrid Saiyans - Future Saga - Time Travelers - Vegeta's Family - Androids/Cell Saga - Bond of Master and Disciple"
-        carta["links"] = "Royal Lineage - Cold Judgment - Messenger from the Future - Z Fighters"
+        carta["passive_skill"] = "Recover 15% of damage dealt as HP when Ki >= 5"
+        carta["categories"] = "Androids - Artificial Life Forms - Androids/Cell Saga - Target: Goku"
+        carta["links"] = "Android Assault - Tough as Nails - Loyalty - Energy Absorption"
         carta["active_skill"] = "No data"
         carta["idpredokkan"] = 0
         carta["idtipoelementopredokkan"] = 0
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         carta["iddokkan"] = 0
         carta["idtipoelementodokkan"] = 0
         carta["rarezadokkan"] = ""
-        carta["poster"] = "https://vignette.wikia.nocookie.net/dbz-dokkanbattle/images/e/e4/Card_1000100_bg.png/revision/latest?cb=20180509095940"
+        carta["poster"] = "https://vignette.wikia.nocookie.net/dbz-dokkanbattle/images/4/4f/Card_1000200_bg.jpg/revision/latest?cb=20190607132627"
 
         db.collection("carta")
             .add(carta)
@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
-    }
+    }*/
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

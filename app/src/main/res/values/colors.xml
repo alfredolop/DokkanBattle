@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="backagl">#51cdff</color>
-    <color name="backteq">#02D815</color>
-    <color name="backint">#bb66cc</color>
+    <color name="backteq">#1CE72F</color>
+    <color name="backint">#C16AD3</color>
     <color name="backstr">#ff6f6f</color>
     <color name="backphy">#eab834</color>
 </resources>

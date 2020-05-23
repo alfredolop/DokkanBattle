@@ -102,7 +102,7 @@ class PersonajeActivity : AppCompatActivity() {
         if (carta.idpredokkan.compareTo(0) == 0) {
             todacartapredokkan.maxHeight = 0
         } else {
-            ivfotopre.loadApng("https://gamepress.gg/dbzdokkanbattle/sites/dbzdokkanbattle/files/assets/character/thumb/card_${carta.idpredokkan}_thumb.png")
+            ivfotopre.loadApng("https://www.web-api.eu/images/dokkan/${carta.idpredokkan}.png")
             ivrarezapre.loadApng("https://www.web-api.eu/images/dokkan_assets/${carta.rarezapredokkan}.png")
             ivtipopre.loadApng("https://www.web-api.eu/images/dokkan_assets/type_${carta.idtipoelementopredokkan}.png")
             fondopre.setBackgroundResource(
@@ -116,7 +116,7 @@ class PersonajeActivity : AppCompatActivity() {
         if (carta.iddokkan.compareTo(0) == 0) {
             todacartadokkan.maxHeight = 0
         } else {
-            ivfotodokkan.loadApng("https://gamepress.gg/dbzdokkanbattle/sites/dbzdokkanbattle/files/assets/character/thumb/card_${carta.iddokkan}_thumb.png")
+            ivfotodokkan.loadApng("https://www.web-api.eu/images/dokkan/${carta.iddokkan}.png")
             ivrarezadokkan.loadApng("https://www.web-api.eu/images/dokkan_assets/${carta.rarezadokkan}.png")
             ivtipodokkan.loadApng("https://www.web-api.eu/images/dokkan_assets/type_${carta.idtipoelementodokkan}.png")
             fondo.setBackgroundResource(
